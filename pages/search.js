@@ -1,17 +1,18 @@
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 import React from 'react';
 import Header from '../components/Header';
 import InfoCard from '../components/InfoCard';
+import Map from '../components/Map';
 
 function Search({ searchResults }) {
   const router = useRouter();
   const { searchLocation, guests } = router.query;
 
   return (
-    <div>
+    <div className='max-h-screen'>
       <Header />
       <main className='flex'>
-        <section className='flex-grow pt-14 px-6'>
+        <section className='flex-grow pt-14 px-6 overflow-y-scroll max-h-screen'>
           <p className='text-xs'>300+ Stays for {guests} guests</p>
           <h1 className='text-3xl font-semibold mt-2 nb-6'>
             Stays in {searchLocation}
@@ -54,6 +55,9 @@ function Search({ searchResults }) {
               )
             )}
           </div>
+        </section>
+        <section className='lg:inline-flex lg:min-w-[40%]'>
+          <Map searchResults={searchResults} />
         </section>
       </main>
     </div>
