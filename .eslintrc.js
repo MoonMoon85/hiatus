@@ -17,5 +17,6 @@ module.exports = {
     'jsx-quotes': ['error', 'prefer-single'],
     'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 0,
+    'react/jsx-one-expression-per-line': 'off',
   },
 };
